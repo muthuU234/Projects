@@ -1,5 +1,7 @@
 package com.image.image.Dto;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 
 public class BookingDto {
@@ -11,6 +13,7 @@ public class BookingDto {
 	private String dest;
 	private double weight;
 	private int cid;
+	
 	public int getCid() {
 		return cid;
 	}

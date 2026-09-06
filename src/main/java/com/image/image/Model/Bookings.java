@@ -36,22 +36,28 @@ public class Bookings {
 	@ManyToOne
 	@JoinColumn(name="CID",referencedColumnName="CID")
 	private Client client;
+	
+	@Column(name="booked_time", insertable = false, updatable = false)
+	private  LocalDateTime bkddate;
+	
+	public LocalDateTime getBkddate() {
+		return bkddate;
+	}
+
+
+	public void setBkddate(LocalDateTime bkddate) {
+		this.bkddate = bkddate;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Bookings [bid=" + bid + ", prodname=" + prodname + ", src=" + src + ", dest=" + dest + ", weight="
 				+ weight + ", price=" + price + ", status=" + status + ", client=" + client + ", bkddate=" + bkddate
 				+ "]";
 	}
-	@Column(name="BOOKED_TIME")
-	private  LocalDateTime bkddate;
 	
 	
-	public LocalDateTime getBkddate() {
-		return bkddate;
-	}
-	public void setBkddate(LocalDateTime bkddate) {
-		this.bkddate = bkddate;
-	}
 	public Client getClient() {
 		return client;
 	}

@@ -20,9 +20,11 @@ public class Rejected {
 	private int cid;
 	@Column(name="BID")
 	private int bid;
+	
 	@Column(name="REJECTED_TIME")
 	private LocalDateTime rejectedtime;
-	@Column(name="BOOKED_TIME")
+	
+	@Column(name="booked_time")
 	private LocalDateTime booked_time;
 	@Column(name="PRODNAME")
 	private String Prodname;
@@ -50,6 +52,7 @@ public class Rejected {
 	public void setRejectedtime(LocalDateTime rejectedtime) {
 		this.rejectedtime = rejectedtime;
 	}
+	
 	public LocalDateTime getBooked_time() {
 		return booked_time;
 	}

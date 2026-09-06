@@ -41,14 +41,21 @@ public class BookingService {
 		b.setWeight(bk.getWeight());
 		c.setCid(bk.getCid());
 		b.setClient(c);
-		Products pricing = prepo.findByProdname(bk.getProdname());
-		double price = pricing.getProdprice();
 		double wght=bk.getWeight();
+
+		Products pricing = prepo.findByProdname(bk.getProdname());
+		if(pricing==null) {
+			b.setPrice(wght*4.55);
+			}else {
+		double price = pricing.getProdprice();
+			
 		b.setPrice(price*wght);
+			}
 		b.setStatus("PENDING");
 		bkrepo.save(b);
 		
-		return ResponseEntity.status(200).body(" Wait sometime Your Courier will get confirm soon...\n  Price Of your Courier is     $"+b.getPrice());
+		return ResponseEntity.status(200).body(" Wait sometime...\n Your Courier will get confirm soon...\n  Price Of your Courier is     \n"
+				+ "$"+b.getPrice());
 		
 	}
 
